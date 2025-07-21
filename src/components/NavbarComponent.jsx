@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import { Navbar, Container, Nav } from 'react-bootstrap';
 
 import { navLinks } from '../data/index';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import HomePages from '../pages/HomePages';
 
 const NavbarComponent = () => {
   const [changeColor, setChangeColor] = useState(false);
@@ -20,6 +21,8 @@ const NavbarComponent = () => {
 
     window.addEventListener('scroll', changeBackgroundColor);
   })
+
+  let navigate = useNavigate();
 
   return (
     <div>
@@ -39,9 +42,8 @@ const NavbarComponent = () => {
                 </div>
               })}
             </Nav>
-
             <div className='text-center'>
-              <button className='btn rounded-1'> Pesan Sekarang</button>
+              <button className='btn rounded-1' onClick={() => navigate('/pemesanan')}> Pesan Sekarang</button>
             </div>
           </Navbar.Collapse>
         </Container>
@@ -49,5 +51,4 @@ const NavbarComponent = () => {
     </div>
   )
 };
-
 export default NavbarComponent;

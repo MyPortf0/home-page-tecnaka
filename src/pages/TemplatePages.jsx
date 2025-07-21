@@ -1,8 +1,10 @@
 import { Container, Col, Row } from 'react-bootstrap';
-import { semuaKelas } from '../data/index';
+import { useNavigate } from 'react-router-dom';
+import { semuaTemplate } from '../data/index';
 import FaqComponent from '../components/FaqComponent';
 
 const TemplatePages = () => {
+  let navigate = useNavigate();
   return (
     <div className="template-page">
       <div className='template min-vh-100'>
@@ -14,21 +16,21 @@ const TemplatePages = () => {
             </Col>
           </Row>
           <Row>
-            {semuaKelas.map((kelas) => {
+            {semuaTemplate.map((template) => {
               return (
-                <Col key={kelas.id} className='shadow rounded' data-aos='fade-up' data-aos-delay={kelas.delay} data-aos-duration='1000'>
-                  <img src={kelas.image} alt='Enplash.com' className='w-100 mb-5 rounded-top' />
+                <Col key={template.id} className='shadow rounded' data-aos='fade-up' data-aos-delay={template.delay} data-aos-duration='1000'>
+                  <img src={template.image} alt='Enplash.com' className='w-100 mb-5 rounded-top' />
                   <div className='star mb-2 px-3'>
-                    <i className={kelas.star1}></i>
-                    <i className={kelas.star2}></i>
-                    <i className={kelas.star3}></i>
-                    <i className={kelas.star4}></i>
-                    <i className={kelas.star5}></i>
+                    <i className={template.star1}></i>
+                    <i className={template.star2}></i>
+                    <i className={template.star3}></i>
+                    <i className={template.star4}></i>
+                    <i className={template.star5}></i>
                   </div>
-                  <h5 className='mb-5 px-3'>{kelas.title}</h5>
+                  <h5 className='mb-5 px-3'>{template.title}</h5>
                   <div className='ket d-flex justify-content-between align-items-center px-3 pb-3'>
-                    <p className='m-0 text-primary fw-bold'>{kelas.price}</p>
-                    <button className='btn rounded-1'>{kelas.buy}</button>
+                    <p className='m-0 text-primary fw-bold'>{template.price}</p>
+                    <button className='btn rounded-1' onClick={() => window.open(template.url, '_blank')}>{template.buy}</button>
                   </div>
                 </Col>
               )
