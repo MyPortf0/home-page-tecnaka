@@ -8,8 +8,8 @@ const FooterComponent = () => {
       <Container>
         <Row className='d-flex justify-content-between'>
           <Col lg='5'>
-            <h3 className='fw-bold'>Myportfo.</h3>
-            <p className='desc'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit similique, quibusdam aliquam perspiciatis sequi ad? Expedita iusto repellendus ab quibusdam.</p>
+            <h3 className='fw-bold'>MyPortfo.</h3>
+            <p className='desc'>Kami membantu Anda memiliki website portofolio profesional tanpa ribet dan tanpa perlu jago ngoding. Cukup pesan, kami yang kerjakan.</p>
             <div className='no mb-1 mt-4'>
               <a href="https://api.whatsapp.com/send/?phone=6282229668531&text&type=phone_number&app_absent=0" className='text-decoration-none' >
                 <i className='fa-brands fa-whatsapp'></i>

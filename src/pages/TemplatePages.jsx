@@ -12,7 +12,7 @@ const TemplatePages = () => {
           <Row>
             <Col>
               <h1 className='fw-bold text-center animate__animated animate__fadeInUp animate__delay-1s'>Semua Template</h1>
-              <p className='text-center animate__animated animate__fadeInUp animate__delay-1s'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p className='text-center animate__animated animate__fadeInUp animate__delay-1s'>Pilih template website portofolio yang sesuai dengan gaya dan kebutuhanmu.</p>
             </Col>
           </Row>
           <Row>
@@ -29,7 +29,7 @@ const TemplatePages = () => {
                   </div>
                   <h5 className='mb-5 px-3'>{template.title}</h5>
                   <div className='ket d-flex justify-content-between align-items-center px-3 pb-3'>
-                    <p className='m-0 text-primary fw-bold'>{template.price}</p>
+                    <p className='m-0 text-primary fw-bold'>Rp. {template.price.toLocaleString('id-ID')}</p>
                     <button className='btn rounded-1' onClick={() => window.open(template.url, '_blank')}>{template.buy}</button>
                   </div>
                 </Col>

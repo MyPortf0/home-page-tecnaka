@@ -28,8 +28,8 @@ const HomePages = () => {
         <Container>
           <Row className='header-box d-flex align-items-center pt-lg-5'>
             <Col lg='6'>
-              <h1 className='mb-4 animate__animated animate__fadeInUp animate__delay-1s'> Temukan <br /> <span>Bakat</span> <br /> Bersama Kami</h1>
-              <p className='mb-4 animate__animated animate__fadeInUp animate__delay-1s'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate facere officia cumque consequatur illum molestiae recusandae sint soluta doloremque atque quae veniam aspernatur, ullam in reprehenderit consequuntur sapiente blanditiis numquam.
+              <h1 className='mb-4 animate__animated animate__fadeInUp animate__delay-1s'> Buat Website<br /> <span> Portofolio Profesional </span> <br />Tanpa Ribet.</h1>
+              <p className='mb-4 animate__animated animate__fadeInUp animate__delay-1s'>Tunjukkan karya, skill, dan CV kamu lewat website pribadi yang modern dan mobile-friendly. Cocok untuk pelajar, mahasiswa, freelancer, sampai jobseeker yang ingin tampil beda secara profesional.
               </p>
               <button className='btn btn-lg rounded-1 me-2 mb-xs-0 mb-2 animate__animated animate__fadeInUp animate__delay-1s' onClick={() => navigate('/template')}> Lihat Template </button>
               <button className='btn btn-lg rounded-1 mb-xs-0 mb-2 animate__animated animate__fadeInUp animate__delay-1s'>Lihat promo</button>
@@ -45,7 +45,7 @@ const HomePages = () => {
           <Row>
             <Col>
               <h1 className='text-center fw-bold'>Template Terbaru</h1>
-              <p className='text-center'>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+              <p className='text-center'>Temukan pilihan template terkini yang dirancang untuk menampilkan portofolio Anda secara profesional dan optimal di semua perangkat.</p>
             </Col>
           </Row>
           <Row>
@@ -62,7 +62,7 @@ const HomePages = () => {
                   </div>
                   <h5 className='mb-5 px-3'>{template.title}</h5>
                   <div className='ket d-flex justify-content-between align-items-center px-3 pb-3'>
-                    <p className='m-0 text-primary fw-bold'>{template.price}</p>
+                    <p className='m-0 text-primary fw-bold'>Rp. {template.price.toLocaleString('id-ID')}</p>
                     <button className='btn rounded-1' onClick={() => window.open(template.url, '_blank')}>{template.buy}</button>
                   </div>
                 </Col>

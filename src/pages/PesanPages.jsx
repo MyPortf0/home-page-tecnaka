@@ -52,6 +52,25 @@ function GridComplexExample() {
         }
     };
 
+    // Format ke bentuk Rp. 35.000
+    // const formatRupiah = (angka) => {
+    //     return 'Rp. ' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    // };
+
+    // Ambil harga template dari semuaTemplate
+    const getTemplatePrice = () => {
+        const selectedTemplate = semuaTemplate.find((item) => item.title === formData.template);
+        return selectedTemplate ? selectedTemplate.price : 0;
+    };
+
+    // Misal harga domain tetap (Rp. 35.000)
+    const domainPrice = 5000;
+
+    // Hitung total harga
+    const getTotalHarga = () => {
+        return getTemplatePrice() + (formData.domain ? domainPrice : 0);
+    };
+
     return (
         <div className="pesanan-page">
             <div className='pesanan min-vh-100'>
@@ -127,7 +146,7 @@ function GridComplexExample() {
                                         </InputGroup>
                                     </Form.Group>
                                 </Row>
-
+                    
                                 <Form.Group className="mb-3" id="formGridCheckbox">
                                     <Form.Check type="checkbox" label="*Terima Syarat & Ketentuan" name="agree"
                                         checked={formData.agree}
@@ -135,6 +154,10 @@ function GridComplexExample() {
                                         isInvalid={validated && !formData.agree} />
                                     <Form.Control.Feedback type="invalid">Harus disetujui</Form.Control.Feedback>
                                 </Form.Group>
+
+                                <div className="total d-flex justify-content-end">
+                                    <p className='fw-bold'>Total Harga : <span className='text-success'> Rp. {getTotalHarga().toLocaleString('id-ID')}</span></p>
+                                </div>
 
                                 <Button variant="" type="submit" className='mt-3'>
                                     Kirim
@@ -144,17 +167,16 @@ function GridComplexExample() {
                                     <Col className='submit col-md-5 '>
                                         {submitted ? (
                                             <div className="after-submit alert alert-success text-center">
-                                                Form Terkirim!
+                                                Terimakasih telah memesan, mohon cek WhatsApp anda!
                                             </div>
                                         ) : validated ? (
                                             <div className="after-submit alert alert-danger text-center">
                                                 Form gagal terkirim!
                                             </div>
                                         ) : null}
+
                                     </Col>
                                 </Row>
-
-
                             </Form>
 
                         </Col>
