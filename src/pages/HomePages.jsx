@@ -32,7 +32,7 @@ const HomePages = () => {
               <p className='mb-4 animate__animated animate__fadeInUp animate__delay-1s'>Tunjukkan karya, skill, dan CV kamu lewat website pribadi yang modern dan mobile-friendly. Cocok untuk pelajar, mahasiswa, freelancer, sampai jobseeker yang ingin tampil beda secara profesional.
               </p>
               <button className='btn btn-lg rounded-1 me-2 mb-xs-0 mb-2 animate__animated animate__fadeInUp animate__delay-1s' onClick={() => navigate('/template')}> Lihat Template </button>
-              <button className='btn btn-lg rounded-1 mb-xs-0 mb-2 animate__animated animate__fadeInUp animate__delay-1s'>Lihat promo</button>
+              {/* <button className='btn btn-lg rounded-1 mb-xs-0 mb-2 animate__animated animate__fadeInUp animate__delay-1s'>Lihat promo</button> */}
             </Col>
             <Col lg='6' className='pt-lg-0 pt-5'>
               <img src={HeroImage} alt="hero-img" className='animate__animated animate__fadeInUp' />

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Container, Col, Row, Form, Button, InputGroup } from 'react-bootstrap';
 import { semuaTemplate } from '../data/index'
 
+
 function GridComplexExample() {
     const [formData, setFormData] = useState({
         nama: '',
@@ -15,6 +16,7 @@ function GridComplexExample() {
     const [submitted, setSubmitted] = useState(false);
     const [validated, setValidated] = useState(false);
 
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData({
@@ -23,7 +25,8 @@ function GridComplexExample() {
         });
     };
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (
             formData.nama &&
@@ -33,19 +36,42 @@ function GridComplexExample() {
             formData.domain &&
             formData.agree
         ) {
-            setSubmitted(true);
-            // alert('Form berhasil dikirim!');
-            alert('Form berhasil dikirim!');
-            console.log('Data yang dikirim:', formData);
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxoOzKkBw-ti4vPP50ZJrdnsufKdJg72YFYv6UM8pZlR2gFTLxZGYiB71IjozTDF-nNaA/exec';
+            const fd = new FormData();
 
-            setFormData({
-                nama: '',
-                email: '',
-                whatsapp: '',
-                template: '',
-                domain: '',
-                terms: false,
-            });
+            // Tambahkan field ke FormData
+            fd.append('nama', formData.nama);
+            fd.append('email', formData.email);
+            fd.append('whatsapp', formData.whatsapp);
+            fd.append('template', formData.template);
+            fd.append('domain', formData.domain);
+            fd.append('harga', getTotalHarga());
+
+            try {
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: fd,
+                });
+
+                if (response.ok) {
+                    console.log('Success!', await response.text());
+                    setSubmitted(true);
+                    alert('Form berhasil dikirim!');
+                    setFormData({
+                        nama: '',
+                        email: '',
+                        whatsapp: '',
+                        template: '',
+                        domain: '',
+                        agree: false,
+                    });
+                } else {
+                    alert('Gagal mengirim data.');
+                }
+            } catch (error) {
+                console.error('Error!', error);
+                alert('Terjadi kesalahan saat mengirim data.');
+            }
         } else {
             setValidated(true);
             alert('Mohon lengkapi semua kolom dan centang S&K.');
@@ -71,6 +97,8 @@ function GridComplexExample() {
         return getTemplatePrice() + (formData.domain ? domainPrice : 0);
     };
 
+
+
     return (
         <div className="pesanan-page">
             <div className='pesanan min-vh-100'>
@@ -82,7 +110,7 @@ function GridComplexExample() {
                     </Row>
                     <Row>
                         <Col>
-                            <Form noValidate onSubmit={handleSubmit}>
+                            <Form noValidate onSubmit={handleSubmit} name='submit-to-google-sheet'>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Nama</Form.Label>
                                     <Form.Control
@@ -146,7 +174,7 @@ function GridComplexExample() {
                                         </InputGroup>
                                     </Form.Group>
                                 </Row>
-                    
+
                                 <Form.Group className="mb-3" id="formGridCheckbox">
                                     <Form.Check type="checkbox" label="*Terima Syarat & Ketentuan" name="agree"
                                         checked={formData.agree}
