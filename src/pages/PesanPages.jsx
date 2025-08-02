@@ -36,7 +36,7 @@ function GridComplexExample() {
             formData.domain &&
             formData.agree
         ) {
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxoOzKkBw-ti4vPP50ZJrdnsufKdJg72YFYv6UM8pZlR2gFTLxZGYiB71IjozTDF-nNaA/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxrcakPy3OF0qNWEyN0BUgTfRNNyDr4LeS0IWs7HqMAWlBHyIMPvNc3bjiEjRggro3zUw/exec'; // to google apps
             const fd = new FormData();
 
             // Tambahkan field ke FormData
